@@ -3,6 +3,9 @@
 import turtle
 import os
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sound_path = os.path.join(dir_path, 'bounce.wav')
+
 wn = turtle.Screen()
 wn.title("Pong by @cabezonshinobi")
 wn.bgcolor("black")
@@ -95,12 +98,12 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        os.system("afplay bounce.wav&")
+        os.system('afplay "{}"&'.format(sound_path))
 
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-        os.system("afplay bounce.wav&")
+        os.system('afplay "{}"&'.format(sound_path))
 
     if ball.xcor() > 390:
         ball.goto(0, 0)
@@ -122,9 +125,9 @@ while True:
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1
-        os.system("afplay bounce.wav&")
+        os.system('afplay "{}"&'.format(sound_path))
 
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40):
         ball.setx(-340)
         ball.dx *= -1
-        os.system("afplay bounce.wav&")
+        os.system('afplay "{}"&'.format(sound_path))
